@@ -1,0 +1,38 @@
+mixin css(filename)
+    link(rel='stylesheet', href=config.contextRoot+'/css/'+filename+'.css')
+
+mixin stylesheet(filepath)
+    link(rel='stylesheet', href=config.contextRoot+'/'+filepath)
+
+mixin script(filepath)
+    script(src=config.contextRoot+'/'+filepath)
+
+mixin instance(instance)
+    a(id=instance.id, style='visibility: hidden;')
+    h2= instance.name
+    section.instance(name=instance.id)
+        section.demo-names
+            -each demo in (instance.demos || [])
+                .demo-name(name=demo.id)= demo.name
+
+        section.demo-content-container
+            -each demo in (instance.demos || [])
+                +demo(demo)
+
+mixin demo(demo)
+    section.demo(name=demo.id)
+        section.example!= demo.html.raw
+        section.code
+            pre: code!= demo.html.highlighted
+
+mixin a(url)
+    - if(attributes.href) { url = attributes.href }
+    - if(url == '/' + locals.path) { attributes.class = (attributes.class || '') + ' active' }
+    a(href=config.contextRoot + url)&attributes(attributes): block
+        //- <k/>
+
+mixin br()
+    | \n
+
+mixin n()
+    | \dn

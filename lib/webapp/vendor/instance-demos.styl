@@ -1,0 +1,81 @@
+.instance
+    margin-bottom 100px
+
+    h2
+        margin-bottom 5px
+
+    .demo-names
+        font-size 0
+
+        .demo-name
+            display inline-block
+            font-size 18px
+            text-transform capitalize
+            cursor pointer
+            box-sizing border-box
+            padding 8px 12px 6px
+            background #fff
+            color #666
+            line-height 1
+            border-top 1px solid #ddd
+            border-left 1px solid #ddd
+            border-bottom 2px solid transparent
+
+            &.active, &:hover
+                background #fff
+                color #222
+                border-bottom 2px solid brand-primary
+
+            &:first-of-type
+                border-top-left-radius 3px
+
+            &:last-of-type
+                border-top-right-radius 3px
+                border-right 1px solid #ddd
+
+    .demo-content-container
+        margin 0
+        font-size 0
+        background #F8F8F8
+        box-shadow inset 1px 1px 2px rgba(0, 0, 0, 0.1)
+        border 1px solid #DDD
+        border-radius 0 5px 5px 5px
+        padding 15px
+
+        .demo
+            display none
+
+            &.active
+                display block
+
+        .example, .code
+            display inline-block
+            box-sizing border-box
+            vertical-align top
+            font-size 14px
+            padding 0
+
+        .example
+            padding-right 10px
+            border-right 1px dashed #999
+
+            width 48%
+            margin-right 2%
+
+        .code
+            width 50%
+            padding-left 10px
+            font-size 12px
+            margin-top -18px
+
+            code
+                display block
+                line-height 1.5em
+                overflow-x auto
+                font-family monospace
+
+            pre
+                margin 0
+
+            .hljs-tag .hljs-title
+                color #0941b8

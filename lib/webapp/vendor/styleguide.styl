@@ -1,0 +1,172 @@
+// === Base Variables ===
+brand-primary = #007fb2
+gray-dark = lighten(#000, 20%)
+gray-light = lighten(#000, 60%)
+
+brand-primary-lighter = desaturate(lighten(brand-primary, 33.5%), 33.5%)
+
+// === Base Mixins ===
+round()
+    border-radius 3px
+
+// === Base Styles ===
+brand-block(color)
+    display inline-block
+    width 80px
+    background-color color
+    color #fff
+    padding 0 4px
+    margin 0 5px 5px 0
+    round()
+
+.styleguide-body
+    margin 0
+    padding 0
+    background #f2f2f2
+    font-family Calibri, Arial, Helvetica, sans-serif
+
+.styleguide-container
+    width 100%
+    padding 0 10%
+    box-sizing border-box
+
+.styleguide-header
+    display block
+    background #fafafa
+    background brand-primary
+    color #fff
+    min-height 50px
+    line-height 50px
+    box-shadow 0 1px 2px rgba(0, 0, 0, .2)
+
+.styleguide-hero
+    background brand-primary-lighter
+    padding 25px 0
+    color #fff
+
+    h1
+        font-size 42px
+        margin 0 0 .5em
+        color #fff
+
+.styleguide-brand
+    font-weight bold
+    margin-right 20px
+    text-decoration none
+    color #fff
+    float left
+
+.styleguide-nav
+    display inline-block
+    float left
+
+.styleguide-margin-children
+    > *
+        margin-bottom 1em
+
+.styleguide-link
+    display inline-block
+    height 100%
+    text-decoration none
+    padding 0 15px
+    text-transform capitalize
+    color #fff
+
+    &:hover, &.active
+        color #fff
+        background darken(brand-primary-lighter, 15%)
+
+.styleguide-toc
+    float right
+    width 15%
+
+    .styleguide-toc-ul
+        position relative
+        list-style-type none
+        font-size 12px
+        padding 0
+        top 20px
+        margin 0
+
+        &.sticky
+            position fixed
+
+        .styleguide-toc-header
+            color #666
+            line-height 3
+            font-size 14px
+
+        .styleguide-toc-li
+            text-transform capitalize
+            line-height 2
+            padding-left 10px
+
+            a
+                color darken(brand-primary, 10%)
+                text-decoration none
+
+                &:hover
+                    color lighten(brand-primary, 10%)
+
+.styleguide-main
+    float left
+    width 80%
+    padding 25px 0
+
+    h2
+        font-size 32px
+        text-transform capitalize
+        padding-bottom 5px
+        border-bottom 1px solid #ddd
+        margin-bottom .25em
+
+.styleguide-box
+    display inline-block
+    padding 10px 30px
+    border 1px solid gray-light
+    round()
+
+    &.blue
+        background-color brand-primary
+
+    &.white
+        background-color #fff
+
+.styleguide-zoom
+    zoom .8
+
+    .container
+        border-left 2px dashed gray-dark
+        border-right 2px dashed gray-dark
+        background rgba(#000, .1)
+        position relative
+
+        &:before
+            content '.container'
+            position absolute
+            top 3px
+            left 3px
+            font-size 12px
+
+col(size, column)
+    .col-{size}-{column}
+        border 1px dotted #808080
+
+        body.page-grid &
+            margin-top 30px
+
+col_sizes = (xs sm md lg)
+
+for size in col_sizes
+    for num in (1..13)
+        col(size, num)
+
+.row
+    .row > div
+        margin-top 0
+        margin-bottom 20px
+
+.cta-banner > div
+    border none
+
+@require 'instance-demos'

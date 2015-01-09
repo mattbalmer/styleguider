@@ -1,0 +1,52 @@
+include mixins
+
+doctype html
+html
+    head
+        title= (locals.title ? locals.title + ' | ' : '') + locals.config.name + ' Styleguide' + (' | v'+locals.config.version)
+
+        link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic,900italic')
+
+        +script('vendor/jquery.min.js')
+        +script('vendor/sticky.js')
+        +script('vendor/demos.js')
+        +stylesheet('vendor/github.css')
+        +stylesheet('vendor/styleguide.css')
+
+        +css('base/reset')
+        +css('styleguide')
+
+        script.
+            sticky('.styleguide-toc-ul', '20px')
+
+        meta(name='contextRoot', description=locals.config.contextRoot)
+
+        block head
+
+    body.styleguide-body(class='page-'+(locals.title || 'home'))
+        header.styleguide-header
+            .styleguide-container
+                +a('/').styleguide-brand= locals.config.name + ' Styleguide' + ' (v' + locals.config.version + ')'
+
+                nav.styleguide-nav
+                    - each level in locals.config.levels
+                        +a('/'+level).styleguide-link= level
+
+                +a('/authors').styleguide-link(style='float:right;') Author's Guide
+
+        section.styleguide-hero
+            .styleguide-container
+                block hero
+
+        .styleguide-content
+            .styleguide-container
+                main.styleguide-main
+                    block content
+                        - each instance in (locals.instances || [])
+                            +instance(instance)
+
+                section.styleguide-toc
+                    ul.styleguide-toc-ul
+                        li.styleguide-toc-header= locals.title
+                        - each instance in (locals.instances || [])
+                            li.styleguide-toc-li: a(href='#'+instance.id)= instance.name

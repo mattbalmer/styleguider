@@ -1,0 +1,10 @@
+mixin demo()
+    block
+
+mixin button()
+    - var cls = '.'+attributes.class.replace(/ /g, '.')
+    button&attributes(attributes)= 'button'+cls
+
+mixin a()
+    - var cls = '.'+attributes.class.replace(/ /g, '.')
+    a&attributes(attributes)= 'a'+cls

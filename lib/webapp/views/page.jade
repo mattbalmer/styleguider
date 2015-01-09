@@ -1,0 +1,10 @@
+extends base
+
+block hero
+    h1= (title || (config.name + ' Styleguide'))
+    - if(subtitle)
+        p= subtitle
+
+- if(content)
+    block append content
+        != content

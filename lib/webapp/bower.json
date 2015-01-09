@@ -1,0 +1,9 @@
+{
+    "name": "styleguider-webapp",
+    "version": "0.0.0",
+    "authors": [
+        "Matt Balmer <contact@mattbalmer.com>"
+    ],
+    "license": "MIT",
+    "private": true
+}

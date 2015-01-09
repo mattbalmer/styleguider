@@ -1,0 +1,28 @@
+{
+    "name": "styleguider",
+    "version": "0.1.0",
+    "author": "Matt Balmer <contact@mattbalmer.com>",
+    "license": "MIT",
+    "main": "lib/styleguider.js",
+    "keywords": [
+        "styleguider",
+        "styleguide",
+        "style guide",
+        "style",
+        "css",
+        "sass",
+        "stylus",
+        "patternlib",
+        "pattern lib",
+        "pattern"
+    ],
+    "dependencies": {
+        "q": "~1.1.2",
+        "highlight.js": "~8.4.0",
+        "stylus": "~0.49.3",
+        "express": "~4.10.7",
+        "nib": "~1.0.4",
+        "jade": "~1.8.2",
+        "node-sass": "~2.0.0-beta"
+    }
+}
