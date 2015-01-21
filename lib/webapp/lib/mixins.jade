@@ -8,3 +8,9 @@ mixin button()
 mixin a()
     - var cls = '.'+attributes.class.replace(/ /g, '.')
     a&attributes(attributes)= 'a'+cls
+
+mixin br()
+    | \n
+
+mixin n()
+    | \dn
