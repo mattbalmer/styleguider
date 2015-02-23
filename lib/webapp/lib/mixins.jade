@@ -14,3 +14,15 @@ mixin br()
 
 mixin n()
     | \dn
+
+mixin section(title)
+    a(id=title, style='visibility: hidden;')
+    h2= title
+    section.author-section
+        block
+
+mixin block(title)
+    section.author-block
+        h3= title
+        section.description
+            block
